@@ -1,7 +1,7 @@
 import type { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import Salesman from "App/Models/Salesman";
 
-export default class SalesmenController {
+export default class SalesmanController {
   public async index({ view, request }: HttpContextContract) {
     const id = request.param("id");
     await Salesman.find(id)

@@ -18,8 +18,13 @@
 |
 */
 
-import Route from '@ioc:Adonis/Core/Route'
+import Route from "@ioc:Adonis/Core/Route";
 
-Route.get('/', async ({ view }) => {
-  return view.render('welcome')
-})
+Route.get("/", async ({ view }) => {
+  return view.render("welcome");
+});
+
+Route.get("/products", "ProductsController.index").as("products.index");
+Route.get("/products/create", "ProductsController.create").as(
+  "products.create"
+);

@@ -9,7 +9,6 @@ export default class extends BaseSchema {
       table.string("name");
       table.integer("price");
       table.integer("stock");
-      table.integer("salesman_id");
       table.timestamp("created_at", { useTz: true });
       table.timestamp("updated_at", { useTz: true });
     });

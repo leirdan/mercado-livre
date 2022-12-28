@@ -1,0 +1,57 @@
+@layout('layouts/main')
+
+@section('content')
+
+<form class="row g-3 text-center">
+  <div class="col-md-6">
+    <label for="name" class="form-label">Nome do produto</label>
+    <br>
+    <input type="text" name="name" class="form-control">
+  </div>
+
+  <div class="col-md-3">
+    <label for="price" class="form-label">Defina o preço</label>
+    <br>
+    <div class="row input-group ms-1">
+      <span class="col-2 input-group-text">R$</span>
+      <input type="number" name="price" class="col form-control">
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <label for="stock" class="form-label">Quantidade</label>
+    <input type="number" class="form-control" name="stock">
+  </div>
+
+  <div class="col-12">
+    <label for="description" class="form-label">Descreva o produto</label>
+    <textarea name="description" id="" rows="10" class="form-control"></textarea>
+  </div>
+
+  <div class="col-md-6">
+    <label for="category" class="form-label">Selecione a categoria do produto</label>
+    <select name="category" id="" class="form-select">
+      <option selected value="0">Escolher...</option>
+      <option value="">Beleza e cuidados pessoais</option>
+      <option value="">Casa e móveis</option>
+      <option value="">Celulares e tablets</option>
+      <option value="">Computadores</option>
+      <option value="">Eletrodomésticos</option>
+      <option value="">Esportes e fitness</option>
+      <option value="">Saúde</option>
+      <option value="">Videogames e jogos</option>
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <label for="" class="form-label">Adicione uma imagem</label>
+    <input type="file" class="form-control">
+  </div>
+
+  <div class="col my-5">
+    <button class="btn btn-warning">Lançar produto</button>
+  </div>
+
+</form>
+
+@end

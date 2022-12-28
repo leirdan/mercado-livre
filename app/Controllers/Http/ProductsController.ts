@@ -3,13 +3,8 @@ import Product from "App/Models/Product";
 
 export default class ProductsController {
   public async index({ view }: HttpContextContract) {
-    await Product.all()
-      .then((products) => {
-        return view.render("products/index", { product: products });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    const products = await Product.all();
+    return view.render("products/index", { product: products });
   }
 
   public async create({ view }: HttpContextContract) {

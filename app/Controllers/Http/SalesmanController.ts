@@ -4,13 +4,8 @@ import Salesman from "App/Models/Salesman";
 export default class SalesmanController {
   public async index({ view, request }: HttpContextContract) {
     const id = request.param("id");
-    await Salesman.find(id)
-      .then((user) => {
-        return view.render("salesman/index", { salesman: user });
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    const salesman = await Salesman.find(id);
+    return view.render("salesman/index", { salesman: salesman });
   }
 
   public async create({ view }: HttpContextContract) {

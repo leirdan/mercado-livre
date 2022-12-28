@@ -6,8 +6,8 @@ export default class Product extends BaseModel {
   @column({ isPrimary: true })
   public id: number;
 
-  // @column()
-  // public salesmanId: number;
+  @column()
+  public salesmanId: number;
 
   @column()
   public name: string;

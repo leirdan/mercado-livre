@@ -22,7 +22,7 @@ export default class Product extends BaseModel {
   public description: string;
 
   @column()
-  public category: number;
+  public category: string;
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime;

@@ -6,7 +6,7 @@ interface BaseProduct {
   price: number;
   stock: number;
   description: string;
-  category: number;
+  category: string;
   salesmanId?: number;
   id?: number;
 }

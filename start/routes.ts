@@ -28,6 +28,7 @@ Route.get("/products", "ProductsController.index").as("products.index");
 Route.get("/products/create", "ProductsController.create").as(
   "products.create"
 );
+Route.post("/products", "ProductsController.store").as("products.store");
 
 Route.get("/salesman", "SalesmanController.index").as("salesman.index");
 Route.get("/salesman/create", "SalesmanController.create").as(

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form class="row g-3 text-center">
+<form class="row g-3 text-center" method="post" action="{{route('products.store')}}">
   <div class="col-md-6">
     <label for="name" class="form-label">Nome do produto</label>
     <br>

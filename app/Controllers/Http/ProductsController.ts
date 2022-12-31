@@ -13,7 +13,7 @@ interface BaseProduct {
 
 export default class ProductsController {
   public async index({ view }: HttpContextContract): Promise<string> {
-    const products = await Product.all();
+    const products = await Product.query().orderBy("id", "desc");
     return view.render("products/index", { product: products });
   }
 
@@ -47,5 +47,17 @@ export default class ProductsController {
 
   public async update({}: HttpContextContract) {}
 
-  public async destroy({}: HttpContextContract) {}
+  public async delete({ params, response }: HttpContextContract) {
+    const product = await Product.find(params.id);
+    if (product) {
+      await product
+        .delete()
+        .then(() => {
+          response.redirect("/products");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }
 }

@@ -18,17 +18,16 @@ export default class ProductsController {
   }
 
   public async filter({ view, request }: HttpContextContract): Promise<string> {
-    let category: string = request.input("category");
-    let c = "";
-    if (category == "Beleza e cuidados pessoais") {
-      c = "bg-warning";
-    }
-    const productsFilter = await Product.query()
+    let category = request.input("category");
+    const filteredProducts = await Product.query()
       .from("products")
-      .select("*")
-      .whereRaw(`category = ${c}`);
-
-    return view.render("products/index", { productsFilter });
+      .where("category", category);
+    try {
+      return view.render("products/resultFilter", { filter: filteredProducts });
+    } catch (err) {
+      console.log(err);
+      return view.render("errors/server-error");
+    }
   }
 
   public async create({ view }: HttpContextContract): Promise<string> {

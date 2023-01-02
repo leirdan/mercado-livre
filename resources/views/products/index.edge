@@ -1,9 +1,33 @@
 @layout('layouts/main')
 @section('content')
 
-<div class="d-flex justify-content-end">
+<div class="d-flex justify-content-end mb-4">
   <a href="/products/create" class="btn btn-primary">Criar novo produto</a>
 </div>
+
+@if (product)
+<div class="d-flex justify-content-center">
+
+  <form class="row justify-content-center col-xl-3 mb-3 mb-lg-0 me-lg-3" role="search" method="get" action="{{ route('products.filter', {category: product.category}) }}">
+    <select name="category" id="category" class="form-select">
+      <option value="0" selected>Filtre por categorias</option>
+      <option value="bg-warning">Beleza e cuidados pessoais</option>
+      <option value="bg-secondary">Casa e móveis</option>
+      <option value="bg-danger">Música e arte</option>
+      <option value="bg-primary">Tecnologia</option>
+      <option value="bg-info">Eletrodomésticos</option>
+      <option value="bg-dark">Esportes e fitness</option>
+      <option value="bg-success">Saúde</option>
+      <option value="bg-light">Videogames e jogos</option>
+    </select>
+    <button class="btn btn-dark col-3 mt-2 mb-4"> Buscar </button>
+  </form>
+</div>
+
+@else
+<h3>Nada foi encontrado.</h3>
+
+@end
 
 <div class="row row-cols-2 row-cols-md-4 g-4 justify-content-center">
 
@@ -14,7 +38,9 @@
       <div class="card-body p-4">
         <div class="text-center">
           <h5 class="fw-bolder card-title">{{item.name}}</h5>
+          @if (item.description)
           <p class="card-subtitle text-muted">{{item.description}}</p>
+          @end
           <p> <span class="badge text-bg-secondary">R$</span> {{item.price}} </p>
         </div>
       </div>
@@ -24,5 +50,7 @@
     </div>
   </div>
   @end
+
+
 </div>
 @end

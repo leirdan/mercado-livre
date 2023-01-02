@@ -17,6 +17,20 @@ export default class ProductsController {
     return view.render("products/index", { product: products });
   }
 
+  public async filter({ view, request }: HttpContextContract): Promise<string> {
+    let category: string = request.input("category");
+    let c = "";
+    if (category == "Beleza e cuidados pessoais") {
+      c = "bg-warning";
+    }
+    const productsFilter = await Product.query()
+      .from("products")
+      .select("*")
+      .whereRaw(`category = ${c}`);
+
+    return view.render("products/index", { productsFilter });
+  }
+
   public async create({ view }: HttpContextContract): Promise<string> {
     return view.render("products/create");
   }
@@ -40,8 +54,6 @@ export default class ProductsController {
         console.log(err);
       });
   }
-
-  public async show({}: HttpContextContract) {}
 
   public async edit({}: HttpContextContract) {}
 

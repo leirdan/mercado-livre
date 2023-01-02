@@ -28,6 +28,9 @@ Route.get("/products", "ProductsController.index").as("products.index");
 Route.get("/products/create", "ProductsController.create").as(
   "products.create"
 );
+Route.get("/products/filter", "ProductsController.filter").as(
+  "products.filter"
+);
 Route.post("/products", "ProductsController.store").as("products.store");
 Route.get("/products/delete/:id", "ProductsController.delete").as(
   "products.delete"

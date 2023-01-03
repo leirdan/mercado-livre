@@ -21,6 +21,10 @@ export default class Salesman extends BaseModel {
   @column()
   private password: string;
 
+  static get table() {
+    return "salesman";
+  }
+
   protected getPassword() {
     return this.password;
   }

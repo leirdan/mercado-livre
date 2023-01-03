@@ -24,20 +24,16 @@ Route.get("/", async ({ view }) => {
   return view.render("home");
 });
 
-Route.get("/products", "ProductsController.index").as("products.index");
-Route.get("/products/create", "ProductsController.create").as(
-  "products.create"
-);
-Route.get("/products/filter", "ProductsController.filter").as(
-  "products.filter"
-);
-Route.post("/products", "ProductsController.store").as("products.store");
-Route.get("/products/delete/:id", "ProductsController.delete").as(
-  "products.delete"
-);
+Route.group(() => {
+  Route.get("/", "ProductsController.index").as("products.index");
+  Route.get("/create", "ProductsController.create").as("products.create");
+  Route.get("/filter", "ProductsController.filter").as("products.filter");
+  Route.post("/", "ProductsController.store").as("products.store");
+  Route.get("/delete/:id", "ProductsController.delete").as("products.delete");
+}).prefix("/products");
 
-Route.get("/salesman", "SalesmanController.index").as("salesman.index");
-Route.get("/salesman/create", "SalesmanController.create").as(
-  "salesman.create"
-);
-Route.post("/salesman", "SalesmanController.store").as("salesman.store");
+Route.group(() => {
+  Route.get("/", "SalesmanController.index").as("salesman.index");
+  Route.get("/create", "SalesmanController.create").as("salesman.create");
+  Route.post("/", "SalesmanController.store").as("salesman.store");
+}).prefix("/salesman");

@@ -1,10 +1,6 @@
 @layout('layouts/main')
 @section('content')
 
-<div class="d-flex justify-content-end mb-4">
-  <a href="/products/create" class="btn btn-primary">Criar novo produto</a>
-</div>
-
 @if (product)
 <div class="d-flex justify-content-center">
 
@@ -28,6 +24,10 @@
 <h3>Nada foi encontrado.</h3>
 
 @end
+
+<div class="d-flex justify-content-end mb-4">
+  <a href="/products/create" class="btn btn-primary">Criar novo produto</a>
+</div>
 
 <div class="row row-cols-2 row-cols-md-4 g-4 justify-content-center">
 

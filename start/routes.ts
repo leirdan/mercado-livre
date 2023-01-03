@@ -19,9 +19,11 @@
 */
 
 import Route from "@ioc:Adonis/Core/Route";
+import Product from "App/Models/Product";
 
 Route.get("/", async ({ view }) => {
-  return view.render("home");
+  const products = await Product.query().orderBy("id", "desc");
+  return view.render("home", { product: products });
 });
 
 Route.group(() => {

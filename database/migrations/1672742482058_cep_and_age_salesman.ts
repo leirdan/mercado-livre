@@ -5,14 +5,14 @@ export default class extends BaseSchema {
 
   public async up() {
     this.schema.alterTable(this.tableName, (table) => {
-      table.integer("CEP").unsigned();
+      table.integer("cep").unsigned();
       table.integer("age").unsigned();
     });
   }
 
   public async down() {
     this.schema.alterTable(this.tableName, (table) => {
-      table.dropColumn("CEP");
+      table.dropColumn("cep");
       table.dropColumn("age");
     });
   }

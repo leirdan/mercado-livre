@@ -11,7 +11,8 @@ interface BaseSalesman {
 
 export default class SalesmanController {
   public async index({ view }: HttpContextContract): Promise<String> {
-    const listSalesman = await Salesman.query().orderBy("updated_at", "desc");
+    const listSalesman = await Salesman.query().orderBy("id", "desc");
+    // TODO: exibir os vendedores na tela; caso o usuário queira, poderá ver o perfil completo de um vendedor ao clicar em "Saiba mais"
     return view.render("salesman/index", { salesman: listSalesman });
   }
 

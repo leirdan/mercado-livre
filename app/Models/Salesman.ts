@@ -10,7 +10,7 @@ export default class Salesman extends BaseModel {
   public name: string;
 
   @column()
-  public CEP: number;
+  public cep: number;
 
   @column()
   public age: number;

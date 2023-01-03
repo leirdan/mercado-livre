@@ -40,3 +40,4 @@ Route.get("/salesman", "SalesmanController.index").as("salesman.index");
 Route.get("/salesman/create", "SalesmanController.create").as(
   "salesman.create"
 );
+Route.post("/salesman", "SalesmanController.store").as("salesman.store");

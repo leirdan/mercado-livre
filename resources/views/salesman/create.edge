@@ -1,5 +1,37 @@
 @layout('layouts/main')
 
 @section('content')
-<h1>Form de cadastro de vendedor</h1>
+
+<form action="{{route('salesman.store')}}" method="post" class="row text-center justify-content-center">
+  <h3 class="my-4">Formulário de cadastro de vendedor</h3>
+  <div class="col-auto mt-md-0">
+    <label for="name" class="form-label">Nome</label>
+    <input type="text" class="form-control" name="name" placeholder="ex.: Ádrian Álvarez Navarro">
+  </div>
+
+  <div class="col-auto mt-md-0 mt-3">
+    <label for="cep" class="form-label">CEP</label>
+    <input type="number" class="form-control" name="cep" placeholder="ex.: 59340-000">
+  </div>
+
+  <div class="col-auto">
+    <label for="age" class="form-label">Idade</label>
+    <input type="number" class="form-control" name="age">
+  </div>
+
+  <div class="col-auto col-lg-5 mt-lg-3">
+    <label for="login" class="form-label">E-mail</label>
+    <input type="email" class="form-control" name="login" placeholder="ex.: navarro.a@gmail.com">
+  </div>
+
+  <div class="col-auto mt-3">
+    <label for="password" class="form-label">Insira sua senha</label>
+    <input type="password" class="form-control">
+  </div>
+
+  <div class="col-lg-6">
+    <button class="btn btn-dark my-4">Criar vendedor</button>
+  </div>
+</form>
+
 @end

@@ -2,10 +2,8 @@ import type { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import Salesman from "App/Models/Salesman";
 
 export default class SalesmanController {
-  public async index({ view, request }: HttpContextContract) {
-    const id = request.param("id");
-    const salesman = await Salesman.find(id);
-    return view.render("salesman/index", { salesman: salesman });
+  public async index({ view }: HttpContextContract) {
+    return view.render("salesman/index");
   }
 
   public async create({ view }: HttpContextContract) {
@@ -14,7 +12,11 @@ export default class SalesmanController {
 
   public async store({}: HttpContextContract) {}
 
-  public async show({}: HttpContextContract) {}
+  public async show({ view, request }: HttpContextContract) {
+    const id = request.param("id");
+    const salesman = await Salesman.find(id);
+    return view.render("salesman/index", { salesman: salesman });
+  }
 
   public async edit({}: HttpContextContract) {}
 

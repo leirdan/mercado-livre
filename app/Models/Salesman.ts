@@ -21,6 +21,9 @@ export default class Salesman extends BaseModel {
   @column()
   private password: string;
 
+  @column()
+  public description: string;
+
   static get table() {
     return "salesman";
   }

@@ -27,6 +27,7 @@ export default class SalesmanController {
     const newSalesman: BaseSalesman = request.only([
       "name",
       "login",
+      "description",
       "age",
       "cep",
       "password",

@@ -38,4 +38,7 @@ Route.group(() => {
   Route.get("/", "SalesmanController.index").as("salesman.index");
   Route.get("/create", "SalesmanController.create").as("salesman.create");
   Route.post("/", "SalesmanController.store").as("salesman.store");
+  Route.get("/profile/:id", "SalesmanController.profile").as(
+    "salesman.profile"
+  );
 }).prefix("/salesman");

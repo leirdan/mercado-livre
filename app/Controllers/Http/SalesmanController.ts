@@ -42,10 +42,10 @@ export default class SalesmanController {
       });
   }
 
-  public async show({ view, request }: HttpContextContract) {
-    const id = request.param("id");
+  public async profile({ view, params }: HttpContextContract) {
+    const id = params.id;
     const salesman = await Salesman.find(id);
-    return view.render("salesman/index", { salesman: salesman });
+    return view.render("salesman/profile", { salesman: salesman });
   }
 
   public async edit({}: HttpContextContract) {}

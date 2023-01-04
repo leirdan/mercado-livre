@@ -54,10 +54,6 @@ export default class ProductsController {
       });
   }
 
-  public async edit({}: HttpContextContract) {}
-
-  public async update({}: HttpContextContract) {}
-
   public async delete({ params, response }: HttpContextContract) {
     const product = await Product.find(params.id);
     if (product) {
